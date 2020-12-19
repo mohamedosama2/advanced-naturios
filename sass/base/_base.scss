@@ -1,0 +1,37 @@
+html {
+    font-size: 62.5%; //1rem = 10px / 16 => 62.5
+
+    @include respon(big-disktop) {
+        font-size: 75%; //1rem = 12px /16 =>75
+    }
+    @include respon(tap-land) {
+        font-size: 56.25%; //1rem = 9px /16 =>56.25
+    }
+    @include respon(tap-port) {
+        font-size: 50%; //1rem = 8px /16 =>50
+    }
+    @include respon(phone) {
+        font-size: 43.75%; //1rem = 7px / 16 => 43.75
+    }
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+    width: 100%;
+
+   
+}
+
+
+::selection{
+    background-color: $color-primary;
+    color: $color-white;
+}

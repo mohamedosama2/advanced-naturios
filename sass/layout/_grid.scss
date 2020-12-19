@@ -1,0 +1,54 @@
+.row {
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    @include respon(tap-port) {
+        max-width: $grid-width-small;
+        padding: 0 3rem;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: $verticall-margin;
+
+        @include respon(tap-port) {
+            margin-bottom: $verticall-margin-small;
+        }
+    }
+
+    @include clearfix;
+
+    [class^="col-"] {
+        float: left;
+        @include respon(tap-port) {
+            width: 100% !important;
+            margin-bottom: 3rem;
+        }
+        &:not(:last-child) {
+            margin-right: $horizontal-margin;
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$horizontal-margin}) / 2);
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$horizontal-margin}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$horizontal-margin}) / 3) + #{$horizontal-margin});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{$horizontal-margin}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$horizontal-margin}) / 4) + #{$horizontal-margin});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$horizontal-margin}) / 4) + 2 * #{$horizontal-margin});
+    }
+}

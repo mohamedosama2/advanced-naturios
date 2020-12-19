@@ -1,0 +1,109 @@
+.popup {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: $color-black, $alpha: 0.8);
+    z-index: 99999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+
+    @supports (backdrop-filter: blur(10px)) or ( -webkit-backdrop-filter: blur(10px)){
+        backdrop-filter: blur(10px) ;
+        -webkit-backdrop-filter: blur(10px);
+        background-color: rgba($color: $color-black, $alpha: 0.3);
+
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            line-height: 1;
+            text-decoration: none;
+            color: $color-grey-dark-3;
+            transition: all 0.3s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary;
+        }
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__content {
+        width: 75%;
+        background-color: $color-white;
+        @include centerd;
+        display: table;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.25);
+        transition: all 0.3s 0.2s;
+        
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    &__images {
+        width: 33.333333%;
+        display: table-cell;
+        height: 100%;
+        @media (max-width:713px)
+        {
+            display: none;
+        }
+
+        @include respon(tap-land){
+    
+            width: 40%;
+        }
+        & img {
+            width: 100%;
+            height: 18%;
+            object-fit: cover;
+            display: block;
+        
+        }
+    }
+
+    &__section {
+        width: 66.6666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+
+        @media (max-width: 901px) and (min-width:1024px) {
+            padding: 0rem 5rem;
+        } 
+
+        @include respon(tap-port){
+            padding: 2rem 3rem;
+            width: 60%;
+        }
+    }
+    &__h4 {
+        text-transform: uppercase;
+        font-size: 1.3rem;
+    }
+
+    &__paragraph {
+        font-size: 1.3rem;
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-grey-dark-2;
+        hyphens: auto;
+    }
+}

@@ -1,0 +1,246 @@
+.card {
+    perspective: 150rem;
+    position: relative;
+    height: 50rem;
+
+    &__tour {
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 3rem 1rem rgba($color-black, 0.1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50rem;
+        transition: all 1s ease;
+
+        backface-visibility: hidden;
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+            &--b1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+            &--b2 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+            &--b3 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+        }
+    }
+
+    &:hover &__tour--front {
+        transform: rotateY(180deg);
+    }
+    &:hover &__tour--back {
+        transform: rotateY(360deg);
+    }
+
+    &__pic {
+        background-size: cover;
+        height: 20rem;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        background-blend-mode: screen;
+        --webkit-bacground-blend-mode: screen;
+        &--1 {
+            background-image: url("../img/nat-5.jpg"),
+                linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        }
+        &--2 {
+            background-image: url("../img/nat-6.jpg"),
+                linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        }
+        &--3 {
+            background-image: url("../img/nat-7.jpg"),
+                linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        }
+    }
+    &__heading {
+        font-size: 2.5rem;
+        text-align: right;
+        width: 60%;
+        color: $color-white;
+        text-transform: uppercase;
+        font-weight: 300;
+        position: absolute;
+        top: 8rem;
+        right: 2rem;
+    }
+    &__span {
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+
+        padding: 1rem 2rem;
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        }
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        }
+    }
+
+    &__details {
+        padding-top: 3rem;
+        ul {
+            font-size: 1.5rem;
+            margin: 0 auto;
+            text-align: center;
+            width: 70%;
+            list-style: none;
+            li {
+                padding: 1rem;
+                &:not(:last-child) {
+                    border-bottom: 1px solid #eee;
+                }
+            }
+        }
+    }
+
+    &__content {
+        position: absolute;
+        color: $color-white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__price--only {
+        font-weight: 100;
+        font-size: 1.5rem;
+    }
+    &__price--value {
+        font-size: 6rem;
+        font-weight: 100;
+        margin-bottom: 6rem;
+    }
+
+    @media only screen and (min-width: 56.25), only screen and (hover: none) {
+        height: auto;
+        box-shadow: 1rem 3rem 2rem rgba($color-black, 0.1);
+        margin-bottom: 2rem;
+        &__tour {
+            border-radius: 3px;
+
+            box-shadow: none;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+
+            &--front {
+                background-color: $color-white;
+                padding-bottom: 5rem;
+            }
+
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+                margin-top: -5rem;
+                &--b1 {
+                    background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+                }
+                &--b2 {
+                    background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+                }
+                &--b3 {
+                    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+                }
+            }
+        }
+
+        &__pic {
+            background-size: cover;
+            height: 20rem;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            background-blend-mode: screen;
+            --webkit-bacground-blend-mode: screen;
+            &--1 {
+                background-image: url("../img/nat-5.jpg"),
+                    linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+            &--2 {
+                background-image: url("../img/nat-6.jpg"),
+                    linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+            &--3 {
+                background-image: url("../img/nat-7.jpg"),
+                    linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+        }
+        &__heading {
+            font-size: 2.5rem;
+            text-align: right;
+            width: 60%;
+            color: $color-white;
+            text-transform: uppercase;
+            font-weight: 300;
+            position: absolute;
+            top: 8rem;
+            right: 2rem;
+        }
+        &__span {
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+
+            padding: 1rem 2rem;
+            &--1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+            &--2 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+            &--3 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+        }
+
+        &__details {
+            padding-top: 1rem;
+            ul {
+                font-size: 1.5rem;
+                margin: 0 auto;
+                text-align: center;
+                width: 70%;
+                list-style: none;
+                li {
+                    padding: 1rem;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #eee;
+                    }
+                }
+            }
+        }
+
+        &__content {
+            position: relative;
+            color: $color-white;
+            top: 0%;
+            left: 0%;
+            transform: translate(0);
+            padding: 6rem 4rem 4rem 4rem;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        &__price--only {
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+        &__price--value {
+            font-size: 6rem;
+            font-weight: 100;
+            margin-bottom: 2rem;
+        }
+    }
+}
